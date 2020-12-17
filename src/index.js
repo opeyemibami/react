@@ -19,7 +19,11 @@ const firstbook2 = {
 function BookList(){
   return (
     <section className="booklist">
-      <Book img_url = {firstbook1.img_url} title ={firstbook1.title} author={firstbook1.author}/>
+      <Book img_url = {firstbook1.img_url} title ={firstbook1.title} author={firstbook1.author}>
+        <p>
+          using children props Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nam delectus dignissimos voluptates suscipit accusamus possimus, quidem porro optio iure!
+        </p>
+      </Book>
       <Book img_url = {firstbook2.img_url} title ={firstbook2.title} author={firstbook2.author}/>
       <Book />
     </section>
@@ -27,11 +31,13 @@ function BookList(){
 }
 
 const Book = (props) => {
+  const {img_url,title,author,children} = props //destructuring the props 
   return (
     <article>
-      <img src={props.img_url} alt="" />
-      <h1>{props.title}</h1>
-      <h1>{props.author}</h1>
+      <img src={img_url} alt="" />
+      <h1>{title}</h1>
+      <h1>{author}</h1>
+      {children} 
     </article>
   );
 };
