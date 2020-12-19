@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDom from 'react-dom'
+import React from "react";
+import ReactDom from "react-dom";
 
-// CSS 
-import './index.css'
+// CSS
+import "./index.css";
 
 const books = [
   {
@@ -28,32 +28,40 @@ const books = [
   },
 ];
 
-
-
-function BookList(){
+function BookList() {
   return (
-  <section className="booklist">
-    {books.map((book)=>{
-      const{img_url, author, title} = book;
-      return(
-        <Book key={id} book ={book}/>
-      )
-    })}
-  </section>
-  )
+    <section className="booklist">
+      {books.map((book) => {
+        const {id, img_url, author, title } = book;
+        return <Book key={id} book={book} />;
+      })}
+    </section>
+  );
 }
 
 const Book = (props) => {
-  const {img_url,title,author} = props.book //destructuring the props
+  const { img_url, title, author } = props.book; //destructuring the props
+
+  const buttonOnClick = () => {
+    alert("Hello world");
+  };
+  const moreComplexOnClick = (author) => {
+    alert(author)
+  };
+
   return (
     <article>
       <img src={img_url} alt="" />
       <h1>{title}</h1>
       <h1>{author}</h1>
+      <button type="button" onClick={buttonOnClick}>
+        refrence example
+      </button>
+      <button type="button" onClick={() => {moreComplexOnClick(author)}}>
+        more complex example
+      </button>
     </article>
   );
-};
+};;
 
-
-ReactDom.render(<BookList />,document.getElementById('root'));
-
+ReactDom.render(<BookList />, document.getElementById("root"));
