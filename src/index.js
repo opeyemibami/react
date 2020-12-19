@@ -4,29 +4,8 @@ import ReactDom from "react-dom";
 // CSS
 import "./index.css";
 
-const books = [
-  {
-    id: 1,
-    img_url:
-      "https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL._AC_UL480_SR315,480_.jpg",
-    author: "Barrack Obama",
-    title: "A promised land",
-  },
-  {
-    id: 2,
-    img_url:
-      "https://images-na.ssl-images-amazon.com/images/I/81RDxgZUHJL._AC_UL480_SR312,480_.jpg",
-    author: "Yhemmy Yhemmy",
-    title: "Stick to the trajectory",
-  },
-  {
-    id: 3,
-    img_url:
-      "https://images-na.ssl-images-amazon.com/images/I/81RDxgZUHJL._AC_UL480_SR312,480_.jpg",
-    author: "Yhemmy Yhemmy",
-    title: "Stick to the trajectory",
-  },
-];
+import {books} from './books'  //name import from name export
+import Book from './Book' //Import from a deault export 
 
 function BookList() {
   return (
@@ -39,29 +18,5 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
-  const { img_url, title, author } = props.book; //destructuring the props
-
-  const buttonOnClick = () => {
-    alert("Hello world");
-  };
-  const moreComplexOnClick = (author) => {
-    alert(author)
-  };
-
-  return (
-    <article>
-      <img src={img_url} alt="" />
-      <h1>{title}</h1>
-      <h1>{author}</h1>
-      <button type="button" onClick={buttonOnClick}>
-        refrence example
-      </button>
-      <button type="button" onClick={() => {moreComplexOnClick(author)}}>
-        more complex example
-      </button>
-    </article>
-  );
-};;
 
 ReactDom.render(<BookList />, document.getElementById("root"));
